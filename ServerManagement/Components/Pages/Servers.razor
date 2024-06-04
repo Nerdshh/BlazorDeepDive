@@ -23,6 +23,12 @@
     </div>
 </div>
 
+<br/>
+
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search Servers" @bind-value="serverFilter" @bind-value:event="oninput"/>
+    <button class="btn btn-outline-secondary" type="button" id="button-search" @onclick="HandleSearch">Search</button>
+</div>
 <br />
 
 <ul>
@@ -51,6 +57,13 @@
     private List<Server> servers = ServersRepository.GetServersByCity("Toronto");
     private List<string> cities = CitiesRepository.GetCities();
     private string selectedCity = "Toronto";
+    private string _serverFilter = "";
+    private string serverFilter { get => _serverFilter; set
+        {
+            _serverFilter = value;
+            this.servers = ServersRepository.SearchServer(_serverFilter);
+        } 
+    }
 
     private void DeleteServer(int serverId)
     {
@@ -66,5 +79,12 @@
         this.selectedCity = cityName;
 
         this.servers = ServersRepository.GetServersByCity(selectedCity);
+    }
+
+    private void HandleSearch()
+    {
+        this.servers = ServersRepository.SearchServer(serverFilter);
+
+        this.selectedCity = string.Empty;
     }
 }
