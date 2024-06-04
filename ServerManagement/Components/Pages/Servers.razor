@@ -32,10 +32,9 @@
 <br />
 
 <ul>
-    @foreach(var server in servers)
-    {
-        <li>
-            @server.Name in @server.City is 
+    <Virtualize Items="this.servers" Context="server">
+        <li @key="server.ServerId">
+            @server.Name in @server.City is
             <span style="color:@(server.IsOnline ? "green" : "red")">
                 @(server.IsOnline ? "online" : "offline")
             </span>
@@ -46,12 +45,19 @@
                 <button type="submit" class="btn btn-primary">Delete</button>
             </EditForm>
         </li>
-    }
+    </Virtualize>
 </ul>
-<br />
-<br />
 
-<a href="/servers/add" class="btn btn-primary">Add Server</a>
+<p>
+    <a href="/servers/add" class="btn btn-primary">Add Server</a>
+</p>
+
+<p>
+    <button class="btn btn-secondary" @onclick="@(() => { this.servers.Insert(0, new Server {Name = "ServerA", City = "Toronto"}); })">
+        Add Server 2
+    </button>
+</p>
+
 
 @code {
     private List<Server> servers = ServersRepository.GetServersByCity("Toronto");
@@ -70,7 +76,8 @@
         if (serverId > 0)
         {
             ServersRepository.DeleteServer(serverId);
-            NavigationManager.Refresh();
+            NavigationManager.NavigateTo("/servers");
+            //NavigationManager.Refresh();
         }
     }
 
