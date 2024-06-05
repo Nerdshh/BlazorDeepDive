@@ -76,7 +76,7 @@ namespace ServerManagement.Models
             }
         }
 
-        public static List<Server> SearchServer(string serverFilter)
+        public static List<Server> SearchServers(string serverFilter)
         {
             return servers.Where(s => s.Name.Contains(serverFilter, StringComparison.OrdinalIgnoreCase)).ToList();
         }
