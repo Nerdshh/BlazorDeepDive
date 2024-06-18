@@ -1,6 +1,12 @@
 ﻿@page "/servers/{id:int}"
 
+@rendermode InteractiveServer
+
 @inject NavigationManager NavigationManager
+
+@inject IJSRuntime JSRuntime
+
+<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation"></NavigationLock>
 
 <h3>EditServer</h3>
 <br />
@@ -62,5 +68,14 @@
         }
 
         NavigationManager.NavigateTo("/servers");
+    }
+
+    private async Task OnBeforeInternalNavigation(LocationChangingContext context)
+    {
+        var isConfirmed = await JSRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to leave this page?");
+        if (!isConfirmed)
+        {
+            context.PreventNavigation();
+        }
     }
 }
