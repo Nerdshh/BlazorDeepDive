@@ -6,7 +6,7 @@
 
 @inject IJSRuntime JSRuntime
 
-<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation"></NavigationLock>
+<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" ConfirmExternalNavigation="true"></NavigationLock>
 
 <h3>EditServer</h3>
 <br />
@@ -67,7 +67,7 @@
             ServersRepository.UpdateServer(server.ServerId, server);
         }
 
-        NavigationManager.NavigateTo("/servers");
+        NavigationManager.NavigateTo($"/servers/back_from/{this.server.City}");
     }
 
     private async Task OnBeforeInternalNavigation(LocationChangingContext context)
