@@ -61,6 +61,9 @@ else
     [Parameter]
     public int? Id { get; set; }
 
+    [SupplyParameterFromQuery]
+    public string? City { get; set; }
+
     [SupplyParameterFromForm(FormName = "formServer")]
     private Server? server { get; set; }
 
@@ -73,6 +76,10 @@ else
         else
         {
             server ??= new Server() { IsOnline = false };
+        }
+        if (server != null && !string.IsNullOrEmpty(this.City))
+        {
+            server.City = this.City; 
         }
     }
 
