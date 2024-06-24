@@ -20,6 +20,6 @@
     private async Task GoNext()
     {
         await JSRuntime.InvokeVoidAsync("sessionStorage.setItem", "demo-data", data);
-        NavigationManager.NavigateTo("/browser-wasm2");
+        NavigationManager.NavigateTo("/browser_wasm_2");
     }
 }
