@@ -2,7 +2,7 @@
 
 namespace ServerManagement.Models
 {
-    public class ServersRepository
+    public static class ServersRepository
     {
         private static List<Server> servers = new List<Server>()
         {
