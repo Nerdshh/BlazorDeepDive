@@ -5,8 +5,13 @@ namespace ServerManagement.Data
 {
     public class ServerManagementContext : DbContext
     {
-        public DbSet<Server> Servers { get; set; }
+        public ServerManagementContext(DbContextOptions<ServerManagementContext> options) : base(options)
+        {
 
+        }          
+
+        public DbSet<Server> Servers { get; set; }
+            
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
