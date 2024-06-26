@@ -4,12 +4,12 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace ServerManagement.Models
 {
-    public class ServersEFCoreRepository
+    public class ServersEFCoreRepository : IServersEFCoreRepository
     {
         private readonly IDbContextFactory<ServerManagementContext> contextFactory;
-        public ServersEFCoreRepository(IDbContextFactory<ServerManagementContext> contextFactory) 
+        public ServersEFCoreRepository(IDbContextFactory<ServerManagementContext> contextFactory)
         {
-            this.contextFactory = contextFactory;    
+            this.contextFactory = contextFactory;
         }
 
         public void AddServer(Server server)
@@ -39,7 +39,8 @@ namespace ServerManagement.Models
             if (server is not null)
             {
                 return server;
-            } else
+            }
+            else
             {
                 return new Server();
             }
@@ -51,7 +52,7 @@ namespace ServerManagement.Models
             {
                 throw new ArgumentNullException(nameof(server));
             }
-            if(serverId != server.ServerId)
+            if (serverId != server.ServerId)
             {
                 return;
             }
