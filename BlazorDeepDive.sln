@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerManagement", "ServerM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp", "ToDoApp\ToDoApp.csproj", "{DD509731-BB40-44EC-AC8E-EE756CDB2799}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAssemblyDemo", "WebAssemblyDemo\WebAssemblyDemo\WebAssemblyDemo.csproj", "{4B709124-F652-419B-ACF2-B996888EB36E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAssemblyDemo", "WebAssemblyDemo\WebAssemblyDemo\WebAssemblyDemo.csproj", "{4B709124-F652-419B-ACF2-B996888EB36E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAssemblyDemo.Client", "WebAssemblyDemo\WebAssemblyDemo.Client\WebAssemblyDemo.Client.csproj", "{8C34B6EF-5A6B-4048-9AE0-844D6166F68B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAssemblyDemo.Client", "WebAssemblyDemo\WebAssemblyDemo.Client\WebAssemblyDemo.Client.csproj", "{8C34B6EF-5A6B-4048-9AE0-844D6166F68B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
